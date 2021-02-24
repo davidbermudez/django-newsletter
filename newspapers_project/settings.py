@@ -26,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd Party
+    'crispy_forms',
+    # local
     'accounts.apps.AccountsConfig',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'newspapers_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -102,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -116,7 +117,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'
