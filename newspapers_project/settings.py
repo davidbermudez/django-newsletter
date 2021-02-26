@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # local
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,16 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = 'davidbermudezmoreno@fp.iesromerovargas.com'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+# API_Key_ID = '50g8DTSJSwmhL7VQTX0AOQ'
+# EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
