@@ -3,20 +3,27 @@
 {% block title %}Articles{% endblock %}
 
 {% block content %}
-  {% for article in object_list %}
-    <div class="card mt-1">
-      <div class="card-header">
-        <a href="{% url 'article_detail' article.pk %}"><span class="font-weight-bold">{{ article.title }}</span></a> &middot;
-        <span class="text-muted"> por {{ article.author }} | {{ article.date }}</span>
-      </div>
-      <div class="card-body">
-        {{ article.body|truncatechars:300 }}
-      </div>
-      <div class="card-footer text-center text-muted">
-        <a href="{% url 'article_edit' article.pk %}">Editar</a> |
-        <a href="{% url 'article_delete' article.pk %}">Borrar</a>
-      </div>
-    </div>
-    <br />
-  {% endfor %}
+{% for article in object_list %}
+<div class="card mt-1">
+  <div class="card-header">
+    <a href="{% url 'article_detail' article.pk %}"><span class="font-weight-bold">{{ article.title }}</span></a>
+    &middot;
+    <span class="text-muted"> por {{ article.author }} | {{ article.date }}</span>
+  </div>
+  <div class="card-body">
+    {{ article.body|truncatechars:300 }}
+    <a href="{% url 'article_edit' article.pk %}">Editar</a> |
+    <a href="{% url 'article_delete' article.pk %}">Borrar</a>
+  </div>
+  <div class="card-footer text-center text-muted">
+    {% for comment in article.comments.all %}
+    <p>
+      <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+      {{ comment }}
+    </p>
+    {% endfor %}
+  </div>
+</div>
+<br/>
+{% endfor %}
 {% endblock content %}
