@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from .secret import SECRET_KEY, EMAIL_HOST_PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ezh^08)+7jhozvb(s20da-)2j89!qaju6s#8%a$@-uf&p@m+68'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -135,8 +136,6 @@ DEFAULT_FROM_EMAIL = 'davidbermudezmoreno@fp.iesromerovargas.com'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-# API_Key_ID = '50g8DTSJSwmhL7VQTX0AOQ'
-# EMAIL_HOST_PASSWORD = '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'
-EMAIL_HOST_PASSWORD = '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'
+
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
